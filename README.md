@@ -120,34 +120,35 @@ Search the file for **`EDIT ME`**. Every spot you need to change is marked:
 | `nav__brand`                  | Your initials in the top-left corner                               |
 | **Hero** section              | Your name and one-line tagline                                     |
 | **About** section             | Your longer bio and your list of skills                            |
-| **Projects** section          | One card per project: name, description, link                      |
+| **Highlights** section        | One card per highlight or project                                  |
 | **Experience** section        | Jobs and education, newest first                                    |
 | **Contact** section           | Your email, LinkedIn and GitHub links                               |
 | Footer                        | Your name                                                           |
 
 Tips:
-- To **add a project**, copy one whole `<article class="card"> … </article>` block and paste it below the others.
+- To **add a highlight or project**, copy one whole `<article class="card"> … </article>` block and paste it below the others.
 - To **add a job or degree**, copy one `<li class="timeline__item"> … </li>` block.
 - To **remove** something, delete its whole block, from the opening tag to the closing tag.
 - Keep `&amp;` for an "&" sign inside the HTML.
 
 ### Your images
 
-All images live in the **`images/`** folder. The placeholders are labelled so you can see where each one goes.
+All images live in the **`images/`** folder.
 
-| File                  | Used for                                      | Best size                 |
-|-----------------------|-----------------------------------------------|---------------------------|
-| `profile.svg`         | Your round photo at the top                   | Square, at least 600×600  |
-| `project-1.svg` … `project-3.svg` | Project card screenshots          | 16:9, e.g. 1600×900       |
-| `og-image.png`        | Preview image when your link is shared        | Exactly 1200×630, PNG or JPG |
-| `favicon.svg`         | The tiny icon in the browser tab              | Square                    |
+| File            | Used for                                   | Best size                    |
+|-----------------|--------------------------------------------|------------------------------|
+| `headshot.jpg`  | Your round photo at the top                | Square, at least 600×600     |
+| `og-image.png`  | Preview image when your link is shared     | Exactly 1200×630, PNG or JPG |
+| `favicon.svg`   | The tiny icon in the browser tab           | Square                       |
 
 To swap one in:
 1. Copy your picture into the `images` folder, for example `images/me.jpg`.
-2. In `index.html`, find the matching `<img src="images/profile.svg" …>` and change it to
-   `src="images/me.jpg"`.
+2. In `index.html`, find the matching `<img src="images/headshot.jpg" …>` and change it to
+   `src="images/me.jpg"`. (Or just give your new photo the same name, `headshot.jpg`, and replace the old file.)
 3. Update the `alt="…"` text to describe the picture (this is read aloud to blind visitors).
 4. File names are **case-sensitive** on Netlify: `Me.JPG` and `me.jpg` are different. Lower-case names with no spaces are safest.
+
+The Highlights cards have no pictures right now. To add one, see the `EDIT ME` note just above the cards in `index.html`.
 
 If you replace `og-image.png`, keep the same name so you don't have to change the meta tags.
 
