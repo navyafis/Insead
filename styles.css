@@ -1,8 +1,7 @@
 /* ==========================================================
    Personal website styles
    Colors live in the :root block below. Change them there and
-   the whole site updates. Dark mode follows the visitor's
-   system setting (prefers-color-scheme).
+   the whole site updates. Dark mode is currently off (see below).
    ========================================================== */
 
 :root {

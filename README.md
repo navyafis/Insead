@@ -155,9 +155,9 @@ If you replace `og-image.png`, keep the same name so you don't have to change th
 ### Colors and fonts
 
 Open **`styles.css`**. The very first block (`:root`) holds every color.
-The block right after it (`prefers-color-scheme: dark`) holds the dark-mode colors,
-which visitors get automatically when their device is in dark mode.
-Change `--accent` in both blocks to switch the highlight color across the whole site.
+Dark mode is currently switched off, so every visitor sees the cool grey theme;
+a note in `styles.css` explains how to turn it back on.
+Change `--accent` to switch the highlight color across the whole site.
 
 The site uses the fonts already built into each visitor's device, so it loads fast and works offline.
 If you'd like a custom font later, ask and I'll tell you which font files to put in the project.
