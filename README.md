@@ -7,7 +7,7 @@ There is nothing to install: no Node, no npm, no build step, no server.
 personal-website/
 ├── index.html     ← all the text on the site
 ├── styles.css     ← colors, fonts, layout
-├── script.js      ← mobile menu, smooth scrolling, fade-in animations
+├── script.js      ← mobile menu, smooth scrolling, fade-in and ASCII animations
 ├── images/        ← your photo, project screenshots, social preview image
 └── README.md      ← this guide
 ```
@@ -137,7 +137,7 @@ All images live in the **`images/`** folder.
 
 | File            | Used for                                   | Best size                    |
 |-----------------|--------------------------------------------|------------------------------|
-| `headshot.jpg`  | Your round photo at the top                | Square, at least 600×600     |
+| `headshot.jpg`  | Your photo in the About section            | Square, at least 600×600     |
 | `og-image.png`  | Preview image when your link is shared     | Exactly 1200×630, PNG or JPG |
 | `favicon.svg`   | The tiny icon in the browser tab           | Square                       |
 
@@ -154,10 +154,16 @@ If you replace `og-image.png`, keep the same name so you don't have to change th
 
 ### Colors and fonts
 
-Open **`styles.css`**. The very first block (`:root`) holds every color.
-Dark mode is currently switched off, so every visitor sees the cool grey theme;
-a note in `styles.css` explains how to turn it back on.
-Change `--accent` to switch the highlight color across the whole site.
+Open **`styles.css`**. The very first block (`:root`) holds every color. The site is always dark
+(near-black background, off-white text), whatever the visitor's device setting.
+Change `--bg`, `--text` and `--muted` there to change the whole look.
 
-The site uses the fonts already built into each visitor's device, so it loads fast and works offline.
-If you'd like a custom font later, ask and I'll tell you which font files to put in the project.
+The site uses the monospace (typewriter-style) fonts already built into each visitor's device,
+so it loads fast and works offline.
+
+### The ASCII portrait
+
+The text-art portrait at the top is made from your headshot and lives inside the
+`<pre id="ascii">` block in `index.html`. `script.js` makes it type in and gently flicker.
+If you change your photo, ask Claude to regenerate it, or delete the whole
+`<div class="hero__ascii" …>…</div>` line to remove it.

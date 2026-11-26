@@ -106,3 +106,48 @@
     sectionObserver.observe(s);
   });
 })();
+
+/* ---------- ASCII portrait shimmer ----------
+   Every few frames, a handful of characters flicker to a neighbouring
+   character of similar density, then settle back. Skipped for visitors
+   who prefer reduced motion. */
+(function () {
+  "use strict";
+  var pre = document.getElementById("ascii");
+  if (!pre) return;
+  if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  var ramp = " .-:/+=<>!?3I25468A0ON";
+  var original = pre.textContent;
+  var chars = original.split("");
+  var spots = [];
+  for (var i = 0; i < chars.length; i++) {
+    if (chars[i] !== " " && chars[i] !== "\n") spots.push(i);
+  }
+  if (!spots.length) return;
+
+  // Reveal: characters type in from top to bottom on load
+  var revealed = 0;
+  var step = Math.ceil(chars.length / 40);
+  function reveal() {
+    revealed = Math.min(chars.length, revealed + step);
+    pre.textContent = original.slice(0, revealed);
+    if (revealed < chars.length) requestAnimationFrame(reveal);
+    else setInterval(shimmer, 90);
+  }
+
+  function shimmer() {
+    var frame = chars.slice();
+    for (var n = 0; n < 60; n++) {
+      var idx = spots[(Math.random() * spots.length) | 0];
+      var r = ramp.indexOf(frame[idx]);
+      if (r < 1) continue;
+      var shift = Math.random() < 0.5 ? -1 : 1;
+      var next = Math.max(1, Math.min(ramp.length - 1, r + shift));
+      frame[idx] = ramp[next];
+    }
+    pre.textContent = frame.join("");
+  }
+
+  reveal();
+})();
